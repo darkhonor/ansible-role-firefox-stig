@@ -1,19 +1,41 @@
 ###
-# Mozilla Firefox Security Technical Implementation Guide :: Version 6, Release: 4 Benchmark Date: 27 Oct 2022
+# Mozilla Firefox Security Technical Implementation Guide :: Version 6, Release: 5 Benchmark Date: 26 Jul 2023
 ###
+# Copy basic config files
+- name: Copy autoconfig.js file to host
+  ansible.builtin.copy:
+    src: autoconfig.js
+    dest: /usr/lib64/firefox/defaults/pref/autoconfig.js
+    mode: '0644'
+    owner: root
+    group: root
+    state: present
+- name: Determine if mozilla.cfg exists
+  ansible.builtin.stat:
+    path: /usr/lib64/firefox/mozilla.cfg
+  register: conf_file
+- name: Copy blank mozilla.cfg to host
+  ansible.builtin.copy:
+    src: mozilla.cfg
+    dest: /usr/lib64/firefox/mozilla.cfg
+    mode: '0644'
+    owner: root
+    group: root
+    state: present
+  when: conf_file.stat.exists is not defined  # File not present
 # V-251545 - FFOX-00-000001 - The installed version of Firefox must be supported.
 - name: Gather installed packages
   ansible.builtin.package_facts:
     manager: auto
   when:
-    - mozilla_stigrule_251545_Manage
+    - DISA_STIG_Mozilla_Firefox_251545
 - name: V-251545 - Verify installed version of Mozilla Firefox 
   ansible.builtin.assert:
     that:
-      - "ansible_facts.packages['firefox'][0].version" is match("{{ mozilla_stigrule_251545_Min_Version }}")
+      - "ansible_facts.packages['firefox'][0].version" is match("{{ min_supported_version }}")
   when:
     - "'firefox' in ansible_facts.packages"
-    - mozilla_stigrule_251545_Manage
+    - DISA_STIG_Mozilla_Firefox_251545
 # V-251546 - FFOX-00-000002 - Firefox must be configured to allow only TLS 1.2 or above.
 # V-251547 - FFOX-00-000003 - Firefox must be configured to ask which certificate to present to a website when a certificate is required.
 # V-251548 - FFOX-00-000004 - Firefox must be configured to not automatically check for updated versions of installed search plugins.
