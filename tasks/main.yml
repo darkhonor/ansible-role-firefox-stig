@@ -1,0 +1,5 @@
+---
+# tasks file for firefox-stig
+- name: "Configure the STIG on {{ ansible_facts['distribution'] }}"
+  include_tasks: linux.yml
+  when: "ansible_facts['distribution'] in ['RedHat', 'CentOS', 'Rocky', 'AlmaLinux']"
