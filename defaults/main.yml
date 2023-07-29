@@ -1,41 +1,61 @@
 ---
 # defaults file for firefox_stig
+###
+# Configure the following for your installation and site
+###
+# Install Directory for RHEL 8
 firefox_install_directory: /usr/lib64/firefox
+# The following is for Ubuntu
+#firefox_install_directory: /usr/lib/firefox
+# This value is site specific.  It's not used now, so can be ignored
 min_supported_version: '102.12'
-# Unable to check version currently
+###
+# Set the following values to skip a STIG setting
+###
+# Unable to check installed version currently
 DISA_STIG_FFOX_00_000001: false
-
 DISA_STIG_FFOX_00_000002: true
 DISA_STIG_FFOX_00_000003: true
 DISA_STIG_FFOX_00_000004: true
-DISA_STIG_FFOX_00_251549: true
-DISA_STIG_FFOX_00_251550: true
-DISA_STIG_FFOX_00_251551: true
-DISA_STIG_FFOX_00_251552: true
-DISA_STIG_FFOX_00_251553: true
-DISA_STIG_FFOX_00_251554: true
-DISA_STIG_FFOX_00_251555: true
-DISA_STIG_FFOX_00_251557: true
-DISA_STIG_FFOX_00_251558: true
-DISA_STIG_FFOX_00_251559: true
-DISA_STIG_FFOX_00_251560: true
-DISA_STIG_FFOX_00_251562: true
-DISA_STIG_FFOX_00_51563: true
-DISA_STIG_FFOX_00_251564: true
-DISA_STIG_FFOX_00_251565: true
-DISA_STIG_FFOX_00_251566: true
-DISA_STIG_FFOX_00_251567: true
-DISA_STIG_FFOX_00_251568: true
-DISA_STIG_FFOX_00_251569: true
-DISA_STIG_FFOX_00_251570: true
-DISA_STIG_FFOX_00_251571: true
-DISA_STIG_FFOX_00_251572: true
-DISA_STIG_FFOX_00_251573: true
-DISA_STIG_FFOX_00_251577: true
-DISA_STIG_FFOX_00_251578: true
-DISA_STIG_FFOX_00_251580: true
-DISA_STIG_FFOX_00_251581: true
-DISA_STIG_FFOX_00_252881: true
-DISA_STIG_FFOX_00_252908: true
-DISA_STIG_FFOX_00_252909: true
+DISA_STIG_FFOX_00_000005: true
+# Unable to automate this check currently
+DISA_STIG_FFOX_00_000006: false
+DISA_STIG_FFOX_00_000007: true
+DISA_STIG_FFOX_00_000008: true
+DISA_STIG_FFOX_00_000009: true
+DISA_STIG_FFOX_00_000010: true
+DISA_STIG_FFOX_00_000011: true
+DISA_STIG_FFOX_00_000013: true
+DISA_STIG_FFOX_00_000014: true
+DISA_STIG_FFOX_00_000015: true
+# Role doesn't install DoD Certificates at this time
+DISA_STIG_FFOX_00_000016: false
+DISA_STIG_FFOX_00_000018: true
+DISA_STIG_FFOX_00_000019: true
+DISA_STIG_FFOX_00_000020: true
+DISA_STIG_FFOX_00_000021: true
+DISA_STIG_FFOX_00_000022: true
+DISA_STIG_FFOX_00_000023: true
+DISA_STIG_FFOX_00_000024: true
+DISA_STIG_FFOX_00_000025: true
+DISA_STIG_FFOX_00_000026: true
+DISA_STIG_FFOX_00_000027: true
+DISA_STIG_FFOX_00_000028: true
+DISA_STIG_FFOX_00_000029: true
+DISA_STIG_FFOX_00_000033: true
+DISA_STIG_FFOX_00_000034: true
+DISA_STIG_FFOX_00_000036: true
+DISA_STIG_FFOX_00_000037: true
+DISA_STIG_FFOX_00_000017: true
+DISA_STIG_FFOX_00_000038: true
+DISA_STIG_FFOX_00_000039: true
+
+###
+# The following variables set options for the STIG settings
+###
 tls_min_version: tls1.2
+# Configure a list of sites that will permit popup windows
+authorized_sites_popup_blocker: [
+  "http://example.mil/",
+  "http://example.gov/"
+]

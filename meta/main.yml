@@ -2,8 +2,9 @@ galaxy_info:
   author: Alex Ackerman
   description: Apply the DISA STIG Configuration to a system with Mozilla Firefox
   company: HomeLab
+  role_name: firefox_stig
 
-  # issue_tracker_url: http://example.com/issue/tracker
+  # issue_tracker_url: https://github.com/darkhonor/ansible-role-firefox-stig/issues
 
   license: MIT
 
@@ -12,7 +13,10 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-      - all
+        - all
+    - name: Ubuntu
+      versions:
+        - all
 
   galaxy_tags:
     - security
