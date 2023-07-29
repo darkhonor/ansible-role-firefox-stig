@@ -53,6 +53,7 @@ DISA_STIG_FFOX_00_000039: true
 ###
 # The following variables set options for the STIG settings
 ###
+# STIG Compliant values are: tls1.2 or tls1.3
 tls_min_version: tls1.2
 # Configure a list of sites that will permit popup windows
 authorized_sites_popup_blocker: [
