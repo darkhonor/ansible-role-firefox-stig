@@ -8,7 +8,10 @@ detailed below.
 
 * STIG Version: Version 6, Release: 5
 * STIG Release Date: 26 Jul 2023
-* Ansible Role Compliance: **Need to Assess**
+* [STIG Link](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MOZ_Firefox_V6R5_STIG.zip)
+* Benchmark Version: Version 6, Release 3 (21 Oct 2022)
+* [Benchmark Link](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_MOZ_Firefox_Linux_V6R3_STIG_SCAP_1-2_Benchmark.zip)
+* Benchmark Compliance: 100% (29/29)
 
 ## Requirements
 
