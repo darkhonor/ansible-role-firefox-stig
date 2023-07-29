@@ -20,10 +20,9 @@ galaxy_info:
 
   galaxy_tags:
     - security
-    - STIG
-    - DISA
+    - stig
+    - disa
     - mozilla
     - firefox
 
 dependencies: []
-
