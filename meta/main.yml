@@ -4,7 +4,7 @@ galaxy_info:
   company: HomeLab
   role_name: firefox_stig
 
-  # issue_tracker_url: https://github.com/darkhonor/ansible-role-firefox-stig/issues
+  issue_tracker_url: https://github.com/darkhonor/ansible-role-firefox-stig/issues
 
   license: MIT
 

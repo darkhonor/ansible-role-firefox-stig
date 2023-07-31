@@ -12,11 +12,15 @@
     owner: root
     group: root
     state: directory
+  when:
+    - '"firefox" in ansible_facts.packages'
 # Create Blank STIG Policy dictionary
 - name: Create blank Policy
   ansible.builtin.set_fact:
     config:
       policies:
+  when:
+    - '"firefox" in ansible_facts.packages'
 # V-251545 - FFOX-00-000001 - The installed version of Firefox must be supported.
 # Unable to check for version at this time
 
@@ -31,6 +35,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000002
+    - '"firefox" in ansible_facts.packages'
 # V-251547 - FFOX-00-000003 - Firefox must be configured to ask which certificate to present to a website when a certificate is required.
 - name: FFOX-00-000003
   ansible.builtin.set_fact:
@@ -45,6 +50,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000003
+    - '"firefox" in ansible_facts.packages'
 # V-251548 - FFOX-00-000004 - Firefox must be configured to not automatically check for updated versions of installed search plugins.
 - name: FFOX-00-000004
   ansible.builtin.set_fact:
@@ -59,6 +65,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000004
+    - '"firefox" in ansible_facts.packages'
 # V-251549 - FFOX-00-000005 - Firefox must be configured to not automatically update installed add-ons and plugins.
 - name: FFOX-00-000005
   ansible.builtin.set_fact:
@@ -70,6 +77,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000005
+    - '"firefox" in ansible_facts.packages'
 # V-251550 - FFOX-00-000006 - Firefox must be configured to not automatically execute or download MIME types that are not authorized for auto-download.
 # Need to figure out how to automate this check
 
@@ -84,6 +92,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000007
+    - '"firefox" in ansible_facts.packages'
 # V-251552 - FFOX-00-000008 - Firefox must be configured to not use a password store with or without a master password.
 - name: FFOX-00-000008
   ansible.builtin.set_fact:
@@ -95,6 +104,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000008
+    - '"firefox" in ansible_facts.packages'
 # V-251553 - FFOX-00-000009 - Firefox must be configured to block pop-up windows.
 - name: FFOX-00-000009
   ansible.builtin.set_fact:
@@ -109,6 +119,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000009
+    - '"firefox" in ansible_facts.packages'
 # V-251554 - FFOX-00-000010 - Firefox must be configured to prevent JavaScript from moving or resizing windows.
 - name: FFOX-00-000010
   ansible.builtin.set_fact:
@@ -123,6 +134,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000010
+    - '"firefox" in ansible_facts.packages'
 # V-251555 - FFOX-00-000011 - Firefox must be configured to prevent JavaScript from raising or lowering windows.
 - name: FFOX-00-000011
   ansible.builtin.set_fact:
@@ -137,6 +149,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000011
+    - '"firefox" in ansible_facts.packages'
 # V-251557 - FFOX-00-000013 - Firefox must be configured to disable the installation of extensions.
 - name: FFOX-00-000013
   ansible.builtin.set_fact:
@@ -149,6 +162,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000013
+    - '"firefox" in ansible_facts.packages'
 # V-251558 - FFOX-00-000014 - Background submission of information to Mozilla must be disabled.
 - name: FFOX-00-000014
   ansible.builtin.set_fact:
@@ -160,6 +174,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000014
+    - '"firefox" in ansible_facts.packages'
 # V-251559 - FFOX-00-000015 - Firefox development tools must be disabled.
 - name: FFOX-00-000015
   ansible.builtin.set_fact:
@@ -171,6 +186,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000015
+    - '"firefox" in ansible_facts.packages'
 # V-251560 - FFOX-00-000016 - Firefox must have the DoD root certificates installed.
 # Need to have DoD and Enclave Certificates Installed Here...
 # V-251562 - FFOX-00-000018 - Firefox must prevent the user from quickly deleting data.
@@ -184,6 +200,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000018
+    - '"firefox" in ansible_facts.packages'
 # V-251563 - FFOX-00-000019 - Firefox private browsing must be disabled.
 - name: FFOX-00-000019
   ansible.builtin.set_fact:
@@ -195,6 +212,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000019
+    - '"firefox" in ansible_facts.packages'
 # V-251564 - FFOX-00-000020 - Firefox search suggestions must be disabled.
 - name: FFOX-00-000020
   ansible.builtin.set_fact:
@@ -206,6 +224,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000020
+    - '"firefox" in ansible_facts.packages'
 # V-251565 - FFOX-00-000021 - Firefox autoplay must be disabled.
 - name: FFOX-00-000021
   ansible.builtin.set_fact:
@@ -219,6 +238,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000021
+    - '"firefox" in ansible_facts.packages'
 # V-251566 - FFOX-00-000022 - Firefox network prediction must be disabled.
 - name: FFOX-00-000022
   ansible.builtin.set_fact:
@@ -230,6 +250,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000022
+    - '"firefox" in ansible_facts.packages'
 # V-251567 - FFOX-00-000023 - Firefox fingerprinting protection must be enabled.
 - name: FFOX-00-000023
   ansible.builtin.set_fact:
@@ -242,6 +263,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000023
+    - '"firefox" in ansible_facts.packages'
 # V-251568 - FFOX-00-000024 - Firefox cryptomining protection must be enabled.
 - name: FFOX-00-000024
   ansible.builtin.set_fact:
@@ -254,6 +276,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000024
+    - '"firefox" in ansible_facts.packages'
 # V-251569 - FFOX-00-000025 - Firefox Enhanced Tracking Protection must be enabled.
 - name: FFOX-00-000025
   ansible.builtin.set_fact:
@@ -268,6 +291,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000025
+    - '"firefox" in ansible_facts.packages'
 # V-251570 - FFOX-00-000026 - Firefox extension recommendations must be disabled.
 - name: FFOX-00-000026
   ansible.builtin.set_fact:
@@ -282,6 +306,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000026
+    - '"firefox" in ansible_facts.packages'
 # V-251571 - FFOX-00-000027 - Firefox deprecated ciphers must be disabled.
 - name: FFOX-00-000027
   ansible.builtin.set_fact:
@@ -294,6 +319,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000027
+    - '"firefox" in ansible_facts.packages'
 # V-251572 - FFOX-00-000028 - Firefox must not recommend extensions as the user is using the browser.
 - name: FFOX-00-000028
   ansible.builtin.set_fact:
@@ -306,6 +332,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000028
+    - '"firefox" in ansible_facts.packages'
 # V-251573 - FFOX-00-000029 - The Firefox New Tab page must not show Top Sites, Sponsored Top Sites, Pocket Recommendations, Sponsored Pocket Stories, Searches, Highlights, or Snippets.
 - name: FFOX-00-000029
   ansible.builtin.set_fact:
@@ -325,6 +352,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000029
+    - '"firefox" in ansible_facts.packages'
 # V-251577 - FFOX-00-000033 - Firefox must be configured so that DNS over HTTPS is disabled.
 - name: FFOX-00-000033
   ansible.builtin.set_fact:
@@ -337,6 +365,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000033
+    - '"firefox" in ansible_facts.packages'
 # V-251578 - FFOX-00-000034 - Firefox accounts must be disabled.
 - name: FFOX-00-000034
   ansible.builtin.set_fact:
@@ -348,6 +377,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000034
+    - '"firefox" in ansible_facts.packages'
 # V-251580 - FFOX-00-000036 - Firefox feedback reporting must be disabled.
 - name: FFOX-00-000036
   ansible.builtin.set_fact:
@@ -359,6 +389,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000036
+    - '"firefox" in ansible_facts.packages'
 # V-251581 - FFOX-00-000037 - Firefox encrypted media extensions must be disabled.
 - name: FFOX-00-000037
   ansible.builtin.set_fact:
@@ -372,6 +403,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000037
+    - '"firefox" in ansible_facts.packages'
 # V-252881 - FFOX-00-000017 - Firefox must be configured to not delete data upon shutdown.
 - name: FFOX-00-000017
   ansible.builtin.set_fact:
@@ -392,6 +424,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000017
+    - '"firefox" in ansible_facts.packages'
 # V-252908 - FFOX-00-000038 - Pocket must be disabled.
 - name: FFOX-00-000038
   ansible.builtin.set_fact:
@@ -403,6 +436,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000038
+    - '"firefox" in ansible_facts.packages'
 # V-252909 - FFOX-00-000039 - Firefox Studies must be disabled.
 - name: FFOX-00-000039
   ansible.builtin.set_fact:
@@ -414,6 +448,7 @@
   with_dict: "{{ config }}"
   when:
     - DISA_STIG_FFOX_00_000039
+    - '"firefox" in ansible_facts.packages'
 ###
 # Save the configured policies to the distribution folder as policies.json
 ###
@@ -421,3 +456,5 @@
   ansible.builtin.copy:
     dest: "{{ firefox_install_directory }}/distribution/policies.json"
     content: "{{ config | ansible.builtin.to_nice_json }}"
+  when:
+    - '"firefox" in ansible_facts.packages'
